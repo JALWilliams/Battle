@@ -16,20 +16,22 @@ class Battle < Sinatra::Base
   end
 
   post '/names'do
-    session[:Player1] = params[:Player1]
-    session[:Player2] = params[:Player2]
+    # Replaced session variables with global variables! ONLY in this 
+    # session[:Player1] = Player.new(params[:Player1])
+    $Player1 = Player.new(params[:Player1])
+    $Player2 = Player.new(params[:Player2])
     redirect '/play'
   end
 
   get '/play'do
-    @player1 = session[:Player1]
-    @player2 = session[:Player2]
+    @player1 = $Player1.name
+    @player2 = $Player2.name
     erb(:play)
   end
 
   get '/attack' do
-    @player1 = session[:Player1]
-    @player2 = session[:Player2]
+    @player1 = $Player1.name
+    @player2 = $Player2.name
     erb :attack
   end
 
