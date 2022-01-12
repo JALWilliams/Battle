@@ -1,10 +1,6 @@
 feature 'Enter names' do
   scenario 'submitting names' do
-    # What does the user have to do?
-    visit('/')
-    fill_in :Player1, with: 'Charlotte'
-    fill_in :Player2, with: 'Mittens'
-    click_button 'Submit'
+    sign_in_and_play
     
     # save_and_open_page # will save the web page and open the browser to display it
 

@@ -4,7 +4,7 @@ require 'sinatra/reloader'
 class Battle < Sinatra::Base
   # short-term information store that lives on the server
   # store basic pieces of information, like the name of the current user, across multiple requests
-  # session is a hash
+  # session is a hash - therefore want to create keys for the variables you want to store
   enable :sessions
 
   configure :development do
