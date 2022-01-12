@@ -2,6 +2,11 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 
 class Battle < Sinatra::Base
+  # short-term information store that lives on the server
+  # store basic pieces of information, like the name of the current user, across multiple requests
+  # session is a hash
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
   end
@@ -11,8 +16,14 @@ class Battle < Sinatra::Base
   end
 
   post '/names'do
-    @player1 = params[:Player1]
-    @player2 = params[:Player2]
+    session[:Player1] = params[:Player1]
+    session[:Player2] = params[:Player2]
+    redirect '/play'
+  end
+
+  get '/play'do
+    @player1 = session[:Player1]
+    @player2 = session[:Player2]
     erb(:play)
   end
 
