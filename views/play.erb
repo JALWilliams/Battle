@@ -1,7 +1,8 @@
+<%# As the game instance is holding the instance of Player1 and Player 2, we are able to access instance methods AND variables via this class %>
 <%= @game.player1.name%> vs. <%= @game.player2.name%> 
 <br>
 
-<%= @game.player2.name%>: 200 points
+<%= @game.player2.name%>: <%= @game.player2.points%> points
 
 <form action="/attack">
   <input type="submit" value='Attack!'>

@@ -17,6 +17,8 @@ class Battle < Sinatra::Base
   post '/names'do
     $player1 = Player.new(params[:Player1])
     $player2 = Player.new(params[:Player2])
+    # Game is accepting the instance variables of Player class
+    # Therefore it also gets access to the functions within these instances! 
     $game = Game.new($player1, $player2)
     redirect '/play'
   end

@@ -15,5 +15,8 @@ class Game
   def attack(player)
     player.receive_damage
   end
-
+  # Here in the code
+  # game.attack(player2)
+  # player2.reciever_damage 
+  # Points get deducted
 end
