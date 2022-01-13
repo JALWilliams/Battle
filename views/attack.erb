@@ -1,2 +1,8 @@
-<%= @player1.name%> attacked <%= @player2.name%> 
+<%= @game.player1.name%> attacked <%= @game.player2.name%> 
 <br>
+
+<%= @game.player2.name %>: <%= @game.player2.points%> points
+
+<form action="/play" method = "get">
+  <input type="submit" value='OK'>
+</form>
